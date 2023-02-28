@@ -1,5 +1,7 @@
 package encapsulation;
 
+import javademosproject.Car;
+
 public class EncapsulationDemo {
 	public static void main(String args[]) {
 		Car car = new Car();
