@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class SerialisationDemo {
 	public static void main(String args[]) {
@@ -36,30 +37,37 @@ public class SerialisationDemo {
 	}
 	
 	private static void SerializationDemoSimplified() {
-		try( FileOutputStream fos newFileOutputStream("route");
-				 ObjectOutputStream fos = new ObjectOutputStream(fos);){
+		try( FileOutputStream fos =  new FileOutputStream("route");
+				 ObjectOutputStream oos = new ObjectOutputStream(oos);){
 				
 				Employee emp1 = new Employee (1,"Max Fuller", 800, "PO123");
 				oos.writeObject(emp1);
-				System.out.println("Object Deserialized - " + emp);
+				System.out.println("Object Deserialized - " + emp1);
 			}
 			catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-			}catch (IOException e) {
+			catch (IOException e) {
 				e.printStackTrace();
 			}
 	}
 }
 
- class Employee implments Serializable{
+ class Employee implements Serializable{
+
 	 int id;
 	 String name;
 	 double salary;
 	 String aadharno;
 	 
-	 Employee(int id, String name,)
+	 Employee(int id, String name, int salary, String aadharno){
+		 this.name = name;
+		 this.id = id;
+		 this.salary = salary;
+		 this.aadharno = aadharno;
+	 }
  
-	 public String toString()
+	 public String toString() {
+		return aadharno;}
  }
  
